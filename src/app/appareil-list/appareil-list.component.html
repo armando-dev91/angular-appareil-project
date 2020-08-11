@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Listes des appareils</h2>
+      <a routerLink="/appareil-new" class="btn btn-success">Nouveau</a>
+    </div>
+  </div>
+  <div class="card-body">
+    <ul class="list-group">
+      <app-appareil *ngFor="let appareil of appareils" [appareil]="appareil"></app-appareil>
+    </ul>
+  </div>
+  <div class="card-footer">
+      <button class="btn btn-success mr-2" (click)="switchOnAll()">Tout allumer</button>
+      <button class="btn btn-danger" (click)="switchOffAll()">Tout éteindre</button>
+  </div>
+</div>

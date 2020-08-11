@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'homeappareil';
+
+  constructor(private authService: AuthService) {}
+
+  isAuth() {
+    return this.authService.isAuth;
+  }
+
+  onLogout() {
+    this.authService.onLogout();
+  }
 }
