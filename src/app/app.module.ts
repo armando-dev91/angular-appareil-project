@@ -12,11 +12,14 @@ import { AuthService } from './service/auth.service';
 import { AppareilService } from './service/appareil.service';
 import { AuthGaurdService } from './security/auth-gaurd.service';
 import { AppareilNewComponent } from './appareil-new/appareil-new.component';
+import { FourOfFourComponent } from './four-of-four/four-of-four.component';
 
 const routes: Routes = [
   { path: 'appareil-list', canActivate: [AuthGaurdService], component: AppareilListComponent },
   { path: 'appareil-new', canActivate: [AuthGaurdService], component: AppareilNewComponent },
   { path: 'connexion', component: AuthComponent },
+  { path: '', canActivate: [AuthGaurdService], component: AppareilListComponent },
+  { path: '**', component: FourOfFourComponent },
 ];
 
 @NgModule({
@@ -25,7 +28,8 @@ const routes: Routes = [
     AppareilListComponent,
     AppareilComponent,
     AuthComponent,
-    AppareilNewComponent
+    AppareilNewComponent,
+    FourOfFourComponent
   ],
   imports: [
     BrowserModule,
